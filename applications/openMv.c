@@ -62,20 +62,7 @@ static rt_err_t openmv_uart_input(rt_device_t dev, rt_size_t size)
     return RT_EOK;
 }
 
-// static void pwminit2(void)
-// {
-//     pwm_info_t pwm_info;
-//     pwm_info.gpio = LS1C_PWM0_GPIO06;           // pwm引脚位gpio06
-//     pwm_info.mode = PWM_MODE_NORMAL;            // 正常模式--连续输出pwm波形
-//     pwm_info.duty = 0.85;                       // pwm占空比 85%
-//     pwm_info.period_ns = 5*1000*1000;            // pwm周期5ms
 
-//     /*pwm初始化，初始化后立即产生pwm波形*/
-//     pwm_init(&pwm_info);
-
-//     /* 使能pwm */
-//     pwm_enable(&pwm_info);
-// }
 
 static void openmv_thread_entry(void* parameter)
 {
@@ -144,14 +131,7 @@ static void openmv_thread_entry(void* parameter)
                 }
                 if (openmv_buffer[i] == 'g'&&openmv_buffer[i+1] == 'e'&&openmv_buffer[i+2] == 't')
                 {
-                    /*if (write_device != RT_NULL)
-                    {
-                            rt_thread_delay(5);
-                            rt_device_write(write_device, 0,"{\"id\":\"" , 8);
-                            rt_thread_delay(5);
-                            rt_device_write(write_device, 0, "\",\"pswSign\":\"True\"", 19);
-                            rt_thread_delay(5);
-                    }*/
+                    
                     rt_kprintf("get_openmv_device%d\n", face_flag);
                     rt_kprintf("face_flag");
                     face_flag = 1;

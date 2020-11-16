@@ -325,21 +325,7 @@ static void esp32_thread_entry(void* parameter)
 
                 if (uart_rx_buffer[i] == 'S'&&uart_rx_buffer[i+1] == 't'&&uart_rx_buffer[i+2] == 'a'&&uart_rx_buffer[i+3] == 't'&&uart_rx_buffer[i+4] == 'e')
                 {
-                    // rt_kprintf("\n");
-                    /*rt_kprintf("{\"wlanState\":\"success\",");
-                    //"wlanState":"connecting / err / success",
-                    rt_kprintf("\"wlanErr\":\"\",");
-                    //"wlanErr":"SSID / PSW / WTF",
-                    rt_kprintf("\"netState\":\"true\",");
-                    //"netState":"false",
-                    rt_kprintf("\"ip\":\"\",");
-                    //"ip":"xxx.xxx.xxx.xxx",
-                    rt_kprintf("\"mac\":\"\",");
-                    //"mac":"xx-xx-xx-xx-xx-xx",
-                    rt_kprintf("\"lastSync\":\"2020-10-01 13:48\",");
-                    //"lastSync":"2020-10-01 13:48",
-                    rt_kprintf("\"UserNum\":\"%d\"", num);
-                    //"UserNum":"3"*/
+                    
                     rt_kprintf("write_device\n");
                     if (write_device != RT_NULL){
                         rt_kprintf("is success\n");
@@ -492,86 +478,12 @@ static void esp32_thread_entry(void* parameter)
                     }
                     length++;
                     
-                    /*
-                    if(uart_rx_buffer[i+2] == 's'){
-                        //rt_mb_send(&esp32_user_date_mb, (rt_uint32_t)&mb_str1);
-                    }
-                    if(uart_rx_buffer[i+2] =='i'&&uart_rx_buffer[i+3]=='d'){
-
-                        if(uart_rx_buffer[i+6]=='\"'&&uart_rx_buffer[i+7]=='\"'){
-                            struct user_id_date user_id_date;
-                            int k = i+10;
-                            while(uart_rx_buffer[k] != '}'){
-                                if(uart_rx_buffer[k] == '\"'&&uart_rx_buffer[k+1]=='a'&&uart_rx_buffer[k+2]=='c'){
-                                    int j = 0;
-                                    while(uart_rx_buffer[k + 11] != '\"'){
-                                        user_id_date.account[j] = uart_rx_buffer[k+11];
-                                        j++;
-                                    }
-                                }
-                                if(uart_rx_buffer[k]=='\"'&&uart_rx_buffer[k+1]=='p'&&uart_rx_buffer[k+2]=='s'){
-                                    int j = 0;
-                                    while(uart_rx_buffer[k+7]!='\"'){
-                                        user_id_date.psw[j] = uart_rx_buffer[k+7];
-                                        j++;
-                                    }
-                                }
-                                k++;
-                            }
-                            rt_mb_send(&esp32_add_user_mb, (rt_uint32_t)&user_id_date);
-                        }
-                        else if (uart_rx_buffer[i+7]<='9'&&uart_rx_buffer[i+7]>='0')
-                        {
-                            struct user_id_date user_id_date;
-                            int k = i;
-                            while(uart_rx_buffer[k] != '}'){
-                                if(uart_rx_buffer[k]=='\"'&&uart_rx_buffer[k+1]=='i'&&uart_rx_buffer[k+2]=='d'){
-                                    user_id_date.id = uart_rx_buffer[k+7];
-                                }
-                                if(uart_rx_buffer[k] == '\"'&&uart_rx_buffer[k+1]=='a'&&uart_rx_buffer[k+2]=='c'){
-                                    int j = 0;
-                                    int l = k;
-                                    rt_kprintf("acc\n");
-                                    while(uart_rx_buffer[l + 11] != '\"'){
-                                        user_id_date.account[j] = uart_rx_buffer[l+11];
-                                        rt_kprintf("1%d\n" ,j);
-                                        //rt_kprintf("%c", uart_rx_buffer[k+11]);
-                                        //rt_kprintf("%c", user_id_date.account[j]);
-                                        j++;
-                                        l++;
-                                    }
-                                    
-                                }
-                                if(uart_rx_buffer[k]=='\"'&&uart_rx_buffer[k+1]=='p'&&uart_rx_buffer[k+2]=='s'){
-                                    int j = 0;
-                                    int l = k;
-                                    while(uart_rx_buffer[l+7]!='\"'){
-                                        user_id_date.psw[j] = uart_rx_buffer[l+7];
-                                        rt_kprintf("2%d\n" ,j);
-                                        //rt_kprintf("%c", uart_rx_buffer[k+11]);
-                                        //rt_kprintf("%c", user_id_date.psw[j]);
-                                        j++;
-                                        l++;
-                                    }
-                                }
-                                k++;
-                            }
-                            rt_mb_send(&esp32_add_user_mb, (rt_uint32_t)&user_id_date);
-                        }
-                    }*/
+                
 
                 }
             }
             
-            //buffer = "{\"wlanState\":\"success\",\"wlanErr\":\"\",\"netState\":\"true\",\"ip\":\"192.168.1.1\",\"mac\":\"FF-FF-FF-FF-FF-FF\",\"lastSync\":\"2020-10-01 13:48\",\"UserNum\":\"3\"}";
-
-            /* 写到写设备中
-            if (write_device != RT_NULL){
-                rt_device_write(write_device, 0, &buffer[0],
-                        144);
-                        rt_thread_delay(5);
-                rt_device_write(write_device, 0, &buffer[0],
-                        144);}*/
+            
                         
         }
         //rt_kprintf("\nlength:%d\n",length);
