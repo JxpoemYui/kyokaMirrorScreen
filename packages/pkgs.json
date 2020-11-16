@@ -1,0 +1,27 @@
+[
+ {
+  "path": "/packages/iot/webclient", 
+  "ver": "v2.0.1", 
+  "name": "WEBCLIENT"
+ }, 
+ {
+  "path": "/packages/iot/jsmn", 
+  "ver": "v0.1.0", 
+  "name": "JSMN"
+ }, 
+ {
+  "path": "/packages/iot/at_device", 
+  "ver": "latest", 
+  "name": "AT_DEVICE"
+ }, 
+ {
+  "path": "/packages/security/mbedtls", 
+  "ver": "v2.7.10", 
+  "name": "MBEDTLS"
+ }, 
+ {
+  "path": "/packages/system/gui_engine", 
+  "ver": "latest", 
+  "name": "GUIENGINE"
+ }
+]
